@@ -15,6 +15,16 @@ class RoomList extends Component {
             this.setState({ rooms: this.state.rooms.concat( room ) })
         });
     }
+
+    createRoom(e){
+        e.preventDefault();
+        if (document.getElementById("newRoom").value !== ''){
+        this.roomsRef.push({
+            name: document.getElementById("newRoom").value
+        });} else {
+            alert('Invalid name try again');
+        } 
+    }
     
     render(){
         return(
@@ -24,6 +34,13 @@ class RoomList extends Component {
                         {room.name}
                     </li>
                 )}
+                <br></br>
+                <form onSubmit={ (e)=>this.createRoom(e)}>
+                    <input placeholder='Room Name' id='newRoom' type='text'></input>
+                    <input type='submit' value='Create Room'></input>
+                </form>
+                
+    
             </div>
         )
     }
