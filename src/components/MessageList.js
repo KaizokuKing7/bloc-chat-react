@@ -21,7 +21,7 @@ class MessageList extends Component {
         return(
             <div>
                 {this.state.messages
-                    .filter(message => message.roomId == this.props.activeRoom)
+                    .filter(message => message.roomId === this.props.activeRoom)
                     .map(message=>
                         <div>    
                             <li>{message.content}</li>
