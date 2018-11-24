@@ -12,3 +12,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+
+html, body, #root, .App {
+  margin: 0;
+  height: 100%;
+}
+
+.App{
+  display: flex;
+}
+
+.left-column{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  background-color: gray
+}
+
+.right-column{
+  flex:4;
+  display: flex;
+  flex-direction: column
+}
+.message{
+  display: flex;
+  flex-direction:column;
+  background-color: lightgray;
+  border-bottom-style: solid;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-color: black;
+  border-bottom-width: 1.5px;
+}
+
+.left-message{
+  align-self: flex-start;
+}
+
+.right-message{
+  align-self: flex-end
+}
+
+.roomList{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}

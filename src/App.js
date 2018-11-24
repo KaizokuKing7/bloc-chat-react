@@ -21,14 +21,14 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activeRoom: '',
+      activeRoom: {},
       user:null
     };
     this.setRoom = this.setRoom.bind(this);
   }
 
   setRoom(room){
-    this.setState({activeRoom: room.key})
+    this.setState({activeRoom: room})
   }
 
   setUser(user){
@@ -39,22 +39,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <header>
+      <div className='left-column'>
         <h1>Bloc Chat</h1>
-      </header>
-      <main>
-        <RoomList
-          firebase={firebase} 
-          setRoom={(room) => this.setRoom(room)} />
-        <MessageList
-          firebase={firebase} 
-          activeRoom={this.state.activeRoom} />
-        <User 
+      <User
         firebase={firebase}
         setUser={(user)=>this.setUser(user)}
         user={this.state.user} />
-        
-      </main>
+        <RoomList
+          firebase={firebase} 
+          setRoom={(room) => this.setRoom(room)} />
+      </div>
+        <MessageList
+          firebase={firebase} 
+          activeRoom={this.state.activeRoom}
+          user={this.state.user} />
       </div>
     );
   }

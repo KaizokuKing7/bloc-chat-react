@@ -18,21 +18,22 @@ class User extends Component {
             
         });
     }
-    have(){
-        if (this.props.user == null){
-            return("Need to Sign in")
-        }else if (this.props.user.isAnonymous === false){
-            return(this.props.user.displayName)
+    login(){
+        if (this.props.user && this.props.user.isAnonymous === true){
+            return('Hello Guest');
+        }else if (this.props.user){
+            return(`Hello ${this.props.user.displayName}`)
         }else{
-            return('Guest')
+            return('Please sign in')
         }
     }
 
    
     render(){
         return(
-            <div>
-                {this.have()}
+            <div className='sign-in'>
+                {this.login()}
+            <br></br>
             <button onClick={()=>this.handleSignIn()}>Sign-in</button>
             <button onClick={()=>this.handleSignOut()}>Sign-out</button>
             </div>

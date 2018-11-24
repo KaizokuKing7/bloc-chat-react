@@ -18,8 +18,7 @@ class RoomList extends Component {
     }
 
     createRoom(e){
-        e.preventDefault();
-        
+        e.preventDefault();   
         if (document.getElementById("newRoom").value !== ''){
         this.roomsRef.push({
             name: document.getElementById("newRoom").value
@@ -36,9 +35,9 @@ class RoomList extends Component {
         return(
             <div className='roomList'>
                 {this.state.rooms.map((room)=>
-                    <li key={room.key} onClick={()=> this.props.setRoom(room)}>
+                    <span key={room.key} onClick={()=> this.props.setRoom(room)}>
                         {room.name}
-                    </li>
+                    </span>
                 )}
                 <br></br>
                 <form onSubmit={ (e)=>this.createRoom(e)}>
