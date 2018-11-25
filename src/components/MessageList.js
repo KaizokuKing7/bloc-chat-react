@@ -28,6 +28,7 @@ class Messagelist extends Component {
         })}else{
             alert('Type a message first')
         };
+        this.setState({newMessage: ''})
     }
     handleChange(e){
         this.setState({newMessage: e.target.value})
